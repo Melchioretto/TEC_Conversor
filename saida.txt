@@ -1,4 +1,4 @@
- Sipser
+;Sipser
 0 0 0 l ini
 0 1 1 l ini
 1 0 0 r 0
