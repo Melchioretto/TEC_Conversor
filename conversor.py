@@ -96,6 +96,49 @@ def sipser_machine(output_file):
 def infinite_machine():
     pass
 
+def substituir_quinta_palavra(output_file):
+    # Lista para armazenar as linhas modificadas
+    linhas_modificadas = []
+
+    with open(output_file, 'r+') as arquivo:
+        for linha in arquivo:
+            if linha.startswith(';'):
+                linhas_modificadas.append(linha)
+                continue
+
+            palavras = linha.strip().split()
+            
+            if len(palavras) >= 5:
+                quinta_palavra = palavras[4]  
+                if quinta_palavra == '0':
+                    palavras[4] = 'a1'
+
+            linha_modificada = ' '.join(palavras) + '\n'
+            linhas_modificadas.append(linha_modificada)
+
+        arquivo.seek(0)
+        arquivo.writelines(linhas_modificadas)
+        arquivo.truncate()
+
+
+def final_sipser(output_file):
+    palavras_vistas = set()
+
+    with open(output_file, 'r') as arquivo_leitura:
+        linhas = arquivo_leitura.readlines()
+
+    with open(output_file, 'a') as arquivo_escrita:
+        for linha in linhas:
+            if linha.startswith(';'):
+                continue
+            
+            palavras = linha.strip().split()
+            if palavras:
+                primeira_palavra = palavras[0]
+                if primeira_palavra not in palavras_vistas:
+                    palavras_vistas.add(primeira_palavra)
+                    linha_formatada = primeira_palavra + ' # # r *'
+                    arquivo_escrita.write('\n'+linha_formatada )
 
 input_file = 'entrada.txt'
 output_file = 'saida.txt'
@@ -110,3 +153,5 @@ with open(output_file, 'r+') as arquivo:
     arquivo.seek(0)
     arquivo.write(';' + linhas)
     print("aaaaaaaa")
+final_sipser(output_file)
+substituir_quinta_palavra(output_file)
