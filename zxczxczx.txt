@@ -5,9 +5,12 @@
 ; Machine starts in state 0.
 
 ; State 0: read the leftmost symbol
-0 0 _ r 1o
-0 1 _ r 1i
+0 0 _ l ini
+0 1 _ l ini
 0 _ _ * accept     ; Empty input
+
+ini _ #
+ini _ #
 
 ; State 1o, 1i: find the rightmost symbol
 1o _ _ l 2o

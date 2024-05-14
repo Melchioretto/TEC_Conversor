@@ -1,4 +1,10 @@
+import fileinput
 import linecache
+
+
+# a maquina verifica se a entrada ´[e impar, pega o tamanho da entrada (num) e escreva num * x seguiddos de num * 1
+
+# o problema é que quando volta para o incio da palravra depóis de fazer as trocas, nao possui uma leitura de #, que da pau na maquina
 
 # Fiz essa função para tirar os comentarios do texto... só não está tirando os que estão na mesma linha d comando.
 def filtrar_linhas(input_file, output_file):
@@ -6,10 +12,10 @@ def filtrar_linhas(input_file, output_file):
         lines = f_input.readlines()
 
     if lines[0].startswith(';S'):
-        lines[0] = 'Sipser\n'
+        lines[0] = ' Sipser\n'
         
     elif lines[0].startswith(';I'):
-        lines[0] = 'Infinite\n'
+        lines[0] = ' Infinite\n'
     for i in range(len(lines)):
         if ';' in lines[i]:
             partes = lines[i].split(';')    
@@ -20,7 +26,7 @@ def filtrar_linhas(input_file, output_file):
 
     with open(output_file, 'w') as f_output:
         f_output.writelines(texto_modificado)
-    if lines[0].startswith('Sipser'):
+    if lines[0].startswith(' Sipser'):
         sipser_machine(output_file)
     else:
         infinite_machine()
@@ -30,8 +36,6 @@ def sipser_machine(output_file):
     lines_copy = []
     with open(output_file, 'r+') as f_input:
         lines = f_input.readlines()
-        if lines[0].startswith('Sipser'):
-           lines[0] =  ';Spiser\n'
         for linha in lines:
             first_position = linha[0]
             if first_position == '0':
@@ -46,7 +50,7 @@ def sipser_machine(output_file):
         if not last_line.endswith('\n'):
             f_input.write('\n')
         f_input.seek(0, 2) 
-        f_input.write(';Modificações\n')
+        f_input.write('\n;Modificações\n')
 #########################################################################
 #tenho que ver
 
@@ -67,21 +71,26 @@ def sipser_machine(output_file):
             palavras[4] = 'ini'
             # Juntar as palavras de volta em uma linha modificada
             lines_copy[i] = ' '.join(palavras)
-    print (lines_copy)
+    print(lines_copy)
     with open(output_file, 'r+') as arquivo:
         linhas = arquivo.readlines()
+        n = 0
         for i, linha in enumerate(linhas):
             if linha.startswith("0"):
-                linhas[i] = lines_copy[i % len(lines_copy)] + "\n" 
+                linhas[i] = lines_copy[n] + "\n"
+                n=n+1
         arquivo.seek(0)
         arquivo.writelines(linhas)
-        arquivo.truncate()  
+        arquivo.truncate()
+       
 #aqui é a parte da rotina que coloca o # no começo
         arquivo.seek(0, 2)
-        arquivo.write('ini * # a1')
+        arquivo.write('ini * # r a1')
         print(linhas_bkp)
-        linhas_modificadas = ['ini' + string[1:] for string in linhas_bkp]
+        linhas_modificadas = ['a1' + string[1:] for string in linhas_bkp]
         print(linhas_modificadas)
+        for string in linhas_modificadas:
+            arquivo.write('\n' + string)      
 #########################################################################
 
 def infinite_machine():
@@ -91,5 +100,13 @@ def infinite_machine():
 input_file = 'entrada.txt'
 output_file = 'saida.txt'
 filtrar_linhas(input_file, output_file)
-
-
+with open(output_file, 'r+') as arquivo:
+    linhas = arquivo.readlines()
+    linhas_sem_branco = [linha for linha in linhas if linha.strip()]
+    arquivo.seek(0)
+    arquivo.writelines(linhas_sem_branco)
+    arquivo.truncate()
+    #linhas = arquivo.read()
+    #arquivo.seek(0)
+    #arquivo.write(';' + linhas)
+    print("aaaaaaaa")
