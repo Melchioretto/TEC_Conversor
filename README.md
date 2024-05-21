@@ -40,4 +40,4 @@ python3 conversor.py
 O `conversor.py` aceita entradas que possuem comentários de acordo com a sintaxe do Morphett, ele vai remover e deixar tudo organizado.
 
 ### Como me senti após terminar o trabalho
-![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fthirstymag.com%2FAlan-Turing-the-enigma-2763738.html&psig=AOvVaw2SqW9ol9zyig6ixrHIJydr&ust=1716398143508000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCND-u8Kfn4YDFQAAAAAdAAAAABAR)
+![](img/machine.png)
