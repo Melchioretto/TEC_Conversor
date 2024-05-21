@@ -1,4 +1,4 @@
-;Sipser
+;ipser
 0 0 0 l ini
 0 1 1 l ini
 1 0 0 r a1
@@ -22,6 +22,7 @@
 ini * # r a1
 a1 0 0 r 1
 a1 1 1 r 1
+Sipser # # r *
 0 # # r *
 1 # # r *
 2 # # r *
