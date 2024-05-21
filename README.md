@@ -34,5 +34,8 @@ Agora está tudo pronto para iniciar a execução.
 
 ## 🚀 Começando
 
-tenho que fazer ainda
-
+O diretório `TEC_Conversor` contém dois arquivos de texto: o arquivo `entrada.txt`, onde você deve inserir os modelos a serem convertidos, e o arquivo `saida.txt`, que será gerado após a execução do código de conversão. Não é necessário acessar manualmente o arquivo de saída para copiar o conteúdo, pois o código está transferindo as informações para a área de transferência do teclado. Um pop-up aparecerá para notificar sobre a conclusão da transferência.
+```
+python3 conversor.py
+```
+![Imagem do pop-up](img/Captura%20de%20tela%20de%202024-05-21%2001-21-03.png)
