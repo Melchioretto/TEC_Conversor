@@ -8,7 +8,7 @@
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 * Você possui instalado `Python 3.7`
-* Você tem uma máquina `Windows / Linux / Mac`.
+* Você tem uma máquina `Linux`.
 * Você leu `objetivo_do_trabalho.txt`.
 
 ### 🔧 Instalação
