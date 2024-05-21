@@ -39,3 +39,5 @@ O diretório `TEC_Conversor` contém dois arquivos de texto: o arquivo `entrada.
 python3 conversor.py
 ```
 ![Imagem do pop-up](img/Captura%20de%20tela%20de%202024-05-21%2001-21-03.png)
+
+O `Conversor.py`aceita entradas que possuem comentários de acordo com a sintaxe do Morphett, ele vai remover e deixar tudo organizado.
