@@ -39,5 +39,5 @@ python3 conversor.py
 
 O `conversor.py` aceita entradas que possuem comentários de acordo com a sintaxe do Morphett, ele vai remover e deixar tudo organizado.
 
-### Como me senti após terminar o trabalho
+### Como me senti após terminar o trabalho:
 ![](img/machine.png)
