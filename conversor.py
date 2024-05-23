@@ -22,7 +22,7 @@ def filtrar_linhas(input_file, output_file):
         f_output.writelines(texto_modificado)
     
     if lines[0].startswith(' Sipser'):
-        pass
+        sipser_machine(output_file)
     else:
         escreve_multiplas(input_file,output_file)
 
@@ -164,6 +164,103 @@ def notification(mensagem):
         dialog.destroy()
     mensagem = "A saída foi copiada para área de transferência\n Só dar um Ctrl + V   :)"
     show_notification_dialog(mensagem)
+
+
+##################################################################################################
+#######################################SIPSER#####################################################
+##################################################################################################
+def sipser_machine(output_file):
+
+    lines_copy = []
+    with open(output_file, 'r+') as f_input:
+        lines = f_input.readlines()
+        for linha in lines:
+            first_position = linha[0]
+            if first_position == '0':
+              lines_copy.append(linha.strip())
+    linhas_bkp = list(lines_copy)
+
+    with open(output_file, 'r+') as f_input:
+        last_line = linecache.getline(output_file, len(lines))
+        if not last_line.endswith('\n'):
+            f_input.write('\n')
+        f_input.seek(0, 2) 
+        f_input.write('\n;Modificações\n')
+    for i in range(len(lines_copy)):
+        palavras = lines_copy[i].split()
+        if len(palavras) >= 4:
+            if palavras[1] == '0':
+                palavras[2] = "0"
+            if palavras[1] == '1':
+                palavras[2] = "1"
+            if palavras[3] == 'r':
+                palavras[3] = "l"
+            palavras[4] = 'ini'
+            lines_copy[i] = ' '.join(palavras)
+    with open(output_file, 'r+') as arquivo:
+        linhas = arquivo.readlines()
+        n = 0
+        for i, linha in enumerate(linhas):
+            if linha.startswith("0"):
+                linhas[i] = lines_copy[n] + "\n"
+                n=n+1
+        arquivo.seek(0)
+        arquivo.writelines(linhas)
+        arquivo.truncate()
+
+        arquivo.seek(0, 2)
+        arquivo.write('ini * # r a1')
+        linhas_modificadas = ['a1' + string[1:] for string in linhas_bkp]
+        for string in linhas_modificadas:
+            arquivo.write('\n' + string) 
+    final_sipser(output_file)    
+
+def substituir_quinta_palavra(output_file):
+    linhas_modificadas = []
+
+    with open(output_file, 'r+') as arquivo:
+        for linha in arquivo:
+            if linha.startswith(';'):
+                linhas_modificadas.append(linha)
+                continue
+
+            palavras = linha.strip().split()
+            
+            if len(palavras) >= 5:
+                quinta_palavra = palavras[4]  
+                if quinta_palavra == '0':
+                    palavras[4] = 'a1'
+
+            linha_modificada = ' '.join(palavras) + '\n'
+            linhas_modificadas.append(linha_modificada)
+
+        arquivo.seek(0)
+        arquivo.writelines(linhas_modificadas)
+        arquivo.truncate()
+
+def final_sipser(output_file):
+    palavras_vistas = set()
+
+    with open(output_file, 'r') as arquivo_leitura:
+        linhas = arquivo_leitura.readlines()
+
+    with open(output_file, 'a') as arquivo_escrita:
+        for linha in linhas:
+            if linha.startswith(';'):
+                continue
+            
+            palavras = linha.strip().split()
+            if palavras:
+                primeira_palavra = palavras[0]
+                if primeira_palavra not in palavras_vistas:
+                    palavras_vistas.add(primeira_palavra)
+                    linha_formatada = primeira_palavra + ' # # r *'
+                    arquivo_escrita.write('\n'+linha_formatada )
+    substituir_quinta_palavra(output_file)
+
+##################################################################################################
+#######################################CHAMANDO###################################################
+##################################################################################################
 
 input_file = 'entrada.txt'
 output_file = 'saida.txt'
