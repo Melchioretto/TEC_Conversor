@@ -24,8 +24,8 @@ cd TEC_Conversor
 ```
 Execute o comando no terminal e aguarde a instalação.
 ```
-chmod +x dependencias.sh
-./dependencias.sh
+bash install_dependencies.sh
+
 ```
 Agora está tudo pronto para iniciar a execução.
 
