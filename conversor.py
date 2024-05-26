@@ -144,26 +144,26 @@ espaçoDireita{palavra} _ & l {palavra}
 
 
 ############################################################
-def copiar_arquivo_para_clipboard(output_file):
-    try:
-        with open(output_file, 'r') as arquivo:
-            conteudo = arquivo.read()
-            pyperclip.copy(conteudo)
-            notification("Conteúdo do arquivo copiado para a área de transferência.")
-    except FileNotFoundError:
-        notification(f"Arquivo '{output_file}' não encontrado.")
+# def copiar_arquivo_para_clipboard(output_file):
+#     try:
+#         with open(output_file, 'r') as arquivo:
+#             conteudo = arquivo.read()
+#             pyperclip.copy(conteudo)
+#             notification("Conteúdo do arquivo copiado para a área de transferência.")
+#     except FileNotFoundError:
+#         notification(f"Arquivo '{output_file}' não encontrado.")
 
-########################################################################
-def notification(mensagem):
-    import gi
-    gi.require_version('Gtk', '3.0')
-    from gi.repository import Gtk
-    def show_notification_dialog(mensagem):
-        dialog = Gtk.MessageDialog(parent=None, flags=0, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text=mensagem)
-        dialog.run()
-        dialog.destroy()
-    mensagem = "A saída foi copiada para área de transferência\n Só dar um Ctrl + V   :)"
-    show_notification_dialog(mensagem)
+# ########################################################################
+# def notification(mensagem):
+#     import gi
+#     gi.require_version('Gtk', '3.0')
+#     from gi.repository import Gtk
+#     def show_notification_dialog(mensagem):
+#         dialog = Gtk.MessageDialog(parent=None, flags=0, message_type=Gtk.MessageType.INFO, buttons=Gtk.ButtonsType.OK, text=mensagem)
+#         dialog.run()
+#         dialog.destroy()
+#     mensagem = "A saída foi copiada para área de transferência\n Só dar um Ctrl + V   :)"
+#     show_notification_dialog(mensagem)
 
 
 ##################################################################################################
@@ -274,4 +274,4 @@ with open(output_file, 'r+') as arquivo:
     linhas = arquivo.read()
     arquivo.seek(0)
     arquivo.write(';' + linhas)
-copiar_arquivo_para_clipboard(output_file)
+# copiar_arquivo_para_clipboard(output_file)
