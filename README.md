@@ -4,8 +4,8 @@
 ### 📋 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
-* Você possui instalado `Python 3.7`
-* Você tem uma máquina `Linux`.
+* Você possui instalado `Python 3.7 ou superior`
+* Você tem uma máquina `Linux, Windows ou MacOs`.
 * Você leu `objetivo_do_trabalho.txt`.
 
 ### 🔧 Instalação
@@ -22,21 +22,15 @@ Ainda no terminal, acesse o diretório
 ```
 cd TEC_Conversor
 ```
-Execute o comando no terminal e aguarde a instalação.
-```
-chmod +x dependencias.sh
-./dependencias.sh
-```
 Agora está tudo pronto para iniciar a execução.
 
 ## 🚀 Começando
 
-O diretório `TEC_Conversor` contém dois arquivos de texto: o arquivo `entrada.txt`, onde você deve inserir os modelos a serem convertidos, e o arquivo `saida.txt`, que será gerado após a execução do código de conversão. Não é necessário acessar manualmente o arquivo de saída para copiar o conteúdo, pois o código está transferindo as informações para a área de transferência do teclado. Um pop-up aparecerá para notificar sobre a conclusão da transferência.
+O diretório `TEC_Conversor` contém dois arquivos de texto: o arquivo `entrada.txt`, onde você deve inserir os modelos a serem convertidos, e o arquivo `saida.txt`, que será gerado após a execução do código de conversão.
 ```
 python3 conversor.py
 ```
-![Imagem do pop-up](img/Captura%20de%20tela%20de%202024-05-21%2001-21-03.png)
-
+Após rodar o comando, o texto vai estar no arquivo `saida.txt`, só copiar e passar para o site do Morphet 
 O `conversor.py` aceita entradas que possuem comentários de acordo com a sintaxe do Morphett, ele vai remover e deixar tudo organizado.
 
 ### Como me senti após terminar o trabalho:
