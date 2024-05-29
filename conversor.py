@@ -1,5 +1,4 @@
 import linecache
-import pyperclip
 
 def filtrar_linhas(input_file, output_file):
     with open(input_file, 'r') as f_input:
@@ -265,13 +264,19 @@ def final_sipser(output_file):
 input_file = 'entrada.txt'
 output_file = 'saida.txt'
 filtrar_linhas(input_file, output_file)
+
+with open(output_file, 'r+') as arquivo:
+    linhas = arquivo.read()
+    if linhas.startswith(';'):
+        pass
+    else:
+        arquivo.seek(0)
+        arquivo.write(';' + linhas)
 with open(output_file, 'r+') as arquivo:
     linhas = arquivo.readlines()
     linhas_sem_branco = [linha for linha in linhas if linha.strip()]
     arquivo.seek(0)
     arquivo.writelines(linhas_sem_branco)
     arquivo.truncate()
-    linhas = arquivo.read()
-    arquivo.seek(0)
-    arquivo.write(';' + linhas)
+
 # copiar_arquivo_para_clipboard(output_file)
