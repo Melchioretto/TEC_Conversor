@@ -1,10 +1,13 @@
 ;S
+;AQUI É UM EXEMPLO DE ENTRADA
 0 0 0 r 1
 0 1 1 r 1
 1 0 0 r 0
 1 1 1 r 0
-1 _ _ l 2
+;PODE RODAR COM ESSES COMENTÁRIOS
+1 _ _ l 2 ;SEM PROBLEMA NENHUM !
 2 x x l 2
+;VÃO SER REMOVIDOS
 2 0 x l 3
 2 1 x l 3
 3 0 0 r 4
