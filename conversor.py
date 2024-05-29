@@ -246,7 +246,7 @@ def final_sipser(output_file):
 
     with open(output_file, 'a') as arquivo_escrita:
         for linha in linhas:
-            if linha.startswith(';'):
+            if linha.startswith(';') or linha.startswith(' Sipser') :
                 continue
             
             palavras = linha.strip().split()
