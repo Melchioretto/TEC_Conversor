@@ -34,8 +34,8 @@ Após rodar o comando, o texto vai estar no arquivo `saida.txt`, só copiar e pa
 O `conversor.py` aceita entradas que possuem comentários de acordo com a sintaxe do Morphett, ele vai remover e deixar tudo organizado.
 
 Rode a saída em:
-```[
-python3 conversor.py](http://morphett.info/turing/turing.html)
+```
+http://morphett.info/turing/turing.html
 ```
 ### Como me senti após terminar o trabalho:
 ![](img/machine.png)
