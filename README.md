@@ -31,8 +31,7 @@ O diretório `TEC_Conversor` contém dois arquivos de texto: o arquivo `entrada.
 python3 conversor.py
 ```
 Após rodar o comando, o texto vai estar no arquivo `saida.txt`, só copiar e passar para o site do Morphet 
-O `conversor.py` aceita entradas que possuem comentários de acordo com a sintaxe do Morphett, ele vai remover e deixar tudo organizado.
+O `conversor.py` aceita entradas que possuem comentários de acordo com a sintaxe do [Morphett](http://morphett.info/turing/turing.html), ele vai remover e deixar tudo organizado.
 
-Rode a saída em:[Flex Grid](http://morphett.info/turing/turing.html)
 ### Como me senti após terminar o trabalho:
 ![](img/machine.png)
